@@ -44,6 +44,17 @@ namespace CodingDojo01
             }
             Console.ReadLine();
         }
+
+        public static void CelciusConverter(double temp)
+        {
+            double fahrenheit = temp * 9 / 5 + 32;
+            double kelvin = temp + 273.15;
+            double reaumur = temp * 4 / 5;
+            Console.WriteLine(temp + " Celcius converted -");
+            Console.WriteLine("Fahrenheit: {0}", fahrenheit);
+            Console.WriteLine("Kelvin: {0}", kelvin);
+            Console.WriteLine("Reaumur: {0}", reaumur);
+        }
     }
     }
 }
