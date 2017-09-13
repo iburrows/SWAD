@@ -66,6 +66,28 @@ namespace CodingDojo01
             Console.WriteLine("Kelvin: {0}", kelvin);
             Console.WriteLine("Reaumur: {0}", reaumur);
         }
+
+        public static void KelvinConverter(double temp)
+        {
+            double celcius = temp - 273.15;
+            double fahrenheit = temp * 1.8 - 459.67;
+            double reaumur = (temp - 273.15) * 0.8;
+            Console.WriteLine(temp + " Kelvin converted -");
+            Console.WriteLine("Celcius: {0}", celcius);
+            Console.WriteLine("Fahrenheit: {0}", fahrenheit);
+            Console.WriteLine("Reaumur: {0}", reaumur);
+        }
+
+        public static void ReaumurConverter(double temp)
+        {
+            double fahrenheit = temp * 2.25 + 32;
+            double kelvin = temp * 1.25 + 273.15;
+            double celcius = temp * 1.25;
+            Console.WriteLine(temp + " Reaumur converted -");
+            Console.WriteLine("Fahrenheit: {0}", fahrenheit);
+            Console.WriteLine("Kelvin: {0}", kelvin);
+            Console.WriteLine("Celcius: {0}", celcius);
+        }
     }
     }
 }
