@@ -17,19 +17,35 @@ namespace CodingDojo02
                 this.Name = Name;
             }
 
-            //public string Name { get; set; }
-
         }
 
         public class Stack
         {
+            public String[] array;
             public Stack()
             {
-                
+                this.array = new String[10];
             }
 
-            public Boolean Push()
+            public Boolean Push(String color)
             {
+                if (this.array[0] == null)
+                {
+                    this.array[0] = color;
+                }
+                else if (this.array[0] != null)
+                {
+                    for (int i = 1; i < array.Length; i++)
+                    {
+                        if (array[i] == null)
+                        {
+                            array[i] = array[0];
+                        }
+                    }
+                }
+
+                array[0] = color;
+                
                 return true;
             }
 
@@ -40,7 +56,7 @@ namespace CodingDojo02
 
             public String Peek()
             {
-                return "";
+                return array[0];
             }
         }
 
@@ -48,9 +64,21 @@ namespace CodingDojo02
         static void Main(string[] args)
         {
             Stack theStack = new Stack();
-            Console.WriteLine("Enter a color to push to the stack:");
-            Color col = new Color(Console.ReadLine());
+            while (true)
+            {
+                
+                Console.WriteLine("Enter a color to push to the stack:");
+                Color col = new Color(Console.ReadLine());
+                theStack.Push(col.Name);
+                Console.WriteLine("Stack begin: ");
+                for (int i = 0; i < theStack.array.Length; i++)
+                {
+                    Console.WriteLine(theStack.array[i]);
+                }
+                Console.WriteLine("Stack end.");
+            }
             
+
 
 
 
