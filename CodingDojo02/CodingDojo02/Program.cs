@@ -29,18 +29,25 @@ namespace CodingDojo02
 
             public Boolean Push(String color)
             {
+                String[] move = new String[array.Length];
+                //counter to check the number of items in the stack
+                int counter = 0;
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (array[i] != null)
+                    {
+                        counter++;
+                    }
+                }
                 if (this.array[0] == null)
                 {
                     this.array[0] = color;
                 }
                 else if (this.array[0] != null)
                 {
-                    for (int i = 1; i < array.Length; i++)
+                    for (int i = counter; i >=0; i--)
                     {
-                        if (array[i] == null)
-                        {
-                            array[i] = array[0];
-                        }
+                        array[i+1] = array[i];
                     }
                 }
 
@@ -56,7 +63,21 @@ namespace CodingDojo02
 
             public String Peek()
             {
-                return array[0];
+                return "First element of the stack is - " + array[0];
+            }
+
+            public String View()
+            {
+                if (array[0] != null)
+                {
+                    Console.WriteLine("BEGINNING OF STACK");
+                    for (int i = 0; i < array.Length; i++)
+                    {
+                        Console.WriteLine((i+1)+". " + array[i]);
+                    }
+                    return "END OF STACK.";
+                }
+                return "No items";
             }
         }
 
@@ -66,16 +87,35 @@ namespace CodingDojo02
             Stack theStack = new Stack();
             while (true)
             {
-                
-                Console.WriteLine("Enter a color to push to the stack:");
-                Color col = new Color(Console.ReadLine());
-                theStack.Push(col.Name);
-                Console.WriteLine("Stack begin: ");
-                for (int i = 0; i < theStack.array.Length; i++)
-                {
-                    Console.WriteLine(theStack.array[i]);
+                Console.WriteLine("1. Push \n" +
+                    "2. Pop \n" +
+                    "3. Peek \n" +
+                    "4. View the stack");
+
+                switch (Console.ReadLine())
+                {   //push to the stack
+                    case "1":
+                        Console.WriteLine("Enter a color to push to the stack:");
+                        Color col = new Color(Console.ReadLine());
+                        theStack.Push(col.Name);
+                        theStack.View();
+                        break;
+                    //pop the top of the stack
+                    case "2":
+                        theStack.Pop();
+                        break;
+                    //peek at the top of the stack
+                    case "3":
+                        Console.WriteLine(theStack.Peek()); 
+                        break;
+                    case "4":
+                        Console.WriteLine(theStack.View());
+                        break;
+                    default:
+                        break;
                 }
-                Console.WriteLine("Stack end.");
+               
+               
             }
             
 
