@@ -58,6 +58,29 @@ namespace CodingDojo02
 
             public Boolean Pop()
             {
+                int counter = 0;
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (array[i] != null)
+                    {
+                    counter++;
+                    }
+                }
+
+                if (array[0] != null)
+                {
+                    Console.WriteLine("Popping " + array[0]);
+                    for (int i = 0; i < counter; i++)
+                    {
+                        array[i] = array[i + 1];
+                    }
+                    array[counter] = null;
+                }
+                else if (array[0] == null)
+                {
+                    Console.WriteLine("No items in the stack.");
+                }
+
                 return true;
             }
 
@@ -68,16 +91,30 @@ namespace CodingDojo02
 
             public String View()
             {
+                int counter = 0;
+
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (array[i] != null)
+                    {
+                        counter++;
+                    }
+                }
                 if (array[0] != null)
                 {
                     Console.WriteLine("BEGINNING OF STACK");
-                    for (int i = 0; i < array.Length; i++)
+                    for (int i = 0; i < counter; i++)
                     {
                         Console.WriteLine((i+1)+". " + array[i]);
                     }
                     return "END OF STACK.";
                 }
                 return "No items";
+            }
+
+            public Boolean Exit()
+            {
+                return false;
             }
         }
 
@@ -98,7 +135,7 @@ namespace CodingDojo02
                         Console.WriteLine("Enter a color to push to the stack:");
                         Color col = new Color(Console.ReadLine());
                         theStack.Push(col.Name);
-                        theStack.View();
+                        //theStack.View();
                         break;
                     //pop the top of the stack
                     case "2":
@@ -106,7 +143,7 @@ namespace CodingDojo02
                         break;
                     //peek at the top of the stack
                     case "3":
-                        Console.WriteLine(theStack.Peek()); 
+                        Console.WriteLine(theStack.Peek());
                         break;
                     case "4":
                         Console.WriteLine(theStack.View());
@@ -115,12 +152,7 @@ namespace CodingDojo02
                         break;
                 }
                
-               
             }
-            
-
-
-
 
         }
 
