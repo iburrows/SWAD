@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodingDojo02Node
+namespace CodingDojo03.ViewModel
 {
-    class Program
+    public class Ellipse
     {
-        static void Main(string[] args)
-        {
-        }
+
     }
 }

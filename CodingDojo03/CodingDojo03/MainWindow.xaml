@@ -1,0 +1,88 @@
+﻿<Window x:Class="CodingDojo03.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:CodingDojo03.ViewModel"
+        xmlns:converters="clr-namespace:CodingDojo03.ViewModel"
+        xmlns:local="clr-namespace:CodingDojo03"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <vm:MainViewModel></vm:MainViewModel>
+    </Window.DataContext>
+    <!--<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left">
+            <Label Content="Currency: " VerticalAlignment="Center" Margin="10, 0"></Label>
+            <ComboBox Width="100" VerticalAlignment="Center" Margin="10, 0"
+                      ItemsSource="{Binding Currencies}" SelectedItem="{Binding SelectedCurrency}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding SoftwareData}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Group" Binding="{Binding Group}"/>
+                    <DataGridTextColumn Header="Sales Price" Binding="{Binding SalesPrice}"/>
+                    <DataGridTextColumn Header="Purchase Price" Binding="{Binding PurchasePrice}"/>
+                    -->
+    <!--Need to confirm the below if binding is correct-->
+    <!--
+                    <DataGridTextColumn Header="On Stock" Binding="{Binding OnStock}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Edit"  Margin="5, 0" Grid.Row="2" VerticalAlignment="Center" Width="75"/>
+            <Button Content="Delete" Margin="5, 0" Grid.Row="2" VerticalAlignment="Center" Width="75"/>
+            <Button Content="Add" Margin="5, 0" Grid.Row="2" VerticalAlignment="Center" Width="75"/>
+        </StackPanel>
+    </Grid>-->
+
+    <Window.Resources>
+        <converters:OnStockToColorBrushConverter x:Key="StockToBrush"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="239*"/>
+            <RowDefinition Height="43*"/>
+        </Grid.RowDefinitions>
+        <DataGrid HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" AutoGenerateColumns="False"
+                  ItemsSource="{Binding Items}"
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Group" Binding="{Binding GroupName}"/>
+                <DataGridTextColumn Header="Sales Price" Binding="{Binding SalesPrice}"/>
+                <DataGridTextColumn Header="Purchase Price" Binding="{Binding PurchasePrice}"/>
+                <!--gets hex color codes-->
+                <!--<DataGridTextColumn Header="On Stock" Binding="{Binding OnStock, Converter={StaticResource StockToBrush}}"/>-->
+
+                <!--solution here: https://stackoverflow.com/questions/13088252/wpf-unable-to-display-ellipse-in-datagridtemplatecolumn--> 
+                <DataGridTemplateColumn CanUserResize="False" Header="On Stock">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Ellipse HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="20" Height="20" Fill="{Binding OnStock, Converter={StaticResource StockToBrush}}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Margin="20,0"
+                  ItemsSource="{Binding Currencies}" SelectedItem="{Binding SelectedCurrency}"
+        />
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,0">
+            <Button Content="Add" Height="20" Width="50" Margin="5,0"/>
+            <Button Content="Edit" Height="20" Width="50" Margin="5,0"/>
+            <Button Content="Delete" Height="20" Width="50" Margin="5,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
