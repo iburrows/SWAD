@@ -17,14 +17,26 @@ namespace CodingDojo03.ViewModel
         private List<StockEntry> stock;
         public ObservableCollection<StockEntryViewModel> items = new ObservableCollection<StockEntryViewModel>();
         private CodingDojo4DataLib.Converter.Currencies selectedCurrency;
+        private CodingDojo4DataLib.StockEntry selectedStock;
 
         private AddCommand addBtnClickedCommand;
-        private StockItem newItem;
+        private DeleteCommand deleteBtnClickedCommand;
+
+        //private StockItem newItem;
 
         public AddCommand AddBtnClickedCommand
         {
             get { return addBtnClickedCommand; }
             set { addBtnClickedCommand = value; }
+        }
+
+        public DeleteCommand DeleteBtnClickedCommand
+        {
+            get { return deleteBtnClickedCommand; }
+            set
+            {
+                deleteBtnClickedCommand = value;
+            }
         }
 
         public Array Currencies
@@ -39,6 +51,16 @@ namespace CodingDojo03.ViewModel
                 selectedCurrency = value;
                 OnChange("SelectedCurrency");
                 StartConversion();
+            }
+        }
+
+        public StockEntry SelectedStock
+        {
+            get { return SelectedStock; }
+            set {
+                SelectedStock = value;
+                OnChange("SelectedItem");
+                DeleteButtonClicked();
             }
         }
 
@@ -90,6 +112,11 @@ namespace CodingDojo03.ViewModel
             StockItem stockItem = new StockItem("New", "NewGroup", 55.50, 100.00, 10);
             StockEntry itemStock = new StockEntry();
             stock.Add(itemStock);
+        }
+
+        private void DeleteButtonClicked()
+        {
+            this.stock.Remove(this.selectedStock);
         }
     }
 }
