@@ -1,4 +1,6 @@
-﻿using CodingDojo4DataLib;
+﻿using CodingDojo03.Commands;
+
+using CodingDojo4DataLib;
 using CodingDojo4DataLib.Converter;
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,15 @@ namespace CodingDojo03.ViewModel
         private List<StockEntry> stock;
         public ObservableCollection<StockEntryViewModel> items = new ObservableCollection<StockEntryViewModel>();
         private CodingDojo4DataLib.Converter.Currencies selectedCurrency;
+
+        private AddCommand addBtnClickedCommand;
+        private StockItem newItem;
+
+        public AddCommand AddBtnClickedCommand
+        {
+            get { return addBtnClickedCommand; }
+            set { addBtnClickedCommand = value; }
+        }
 
         public Array Currencies
         {
@@ -49,14 +60,36 @@ namespace CodingDojo03.ViewModel
         }
         public MainViewModel()
         {
+            AddBtnClickedCommand = new AddCommand(new Action(AddButtonClicked), new Func<bool>(CanExecute));
+
             SampleManager manager = new SampleManager();
             stock = manager.CurrentStock.OnStock;
-
             foreach (var item in manager.CurrentStock.OnStock)
             {
                 Items.Add(new StockEntryViewModel(item)); //filling the viewmodel data structure
 
             }
+        }
+
+        private bool CanExecute()
+        {
+            //need to check this
+            return true;
+        }
+
+        private void AddButtonClicked()
+        {
+            //need  to add the item to the stocklist
+            //StockEntry itemStock = new StockEntry();
+            //itemStock.SoftwarePackage.Name = "New";
+            //itemStock.SoftwarePackage.Category.Name = "NewGroup";
+            //itemStock.SoftwarePackage.PurchasePrice = 55.50;
+            //itemStock.SoftwarePackage.SalesPrice = 100.00;
+            //itemStock.Amount = 20;
+
+            StockItem stockItem = new StockItem("New", "NewGroup", 55.50, 100.00, 10);
+            StockEntry itemStock = new StockEntry();
+            stock.Add(itemStock);
         }
     }
 }

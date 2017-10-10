@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CodingDojo03.ViewModel
 {
-    public class Ellipse
+    class AddItem
     {
-
+        private StockItem item;
     }
 }

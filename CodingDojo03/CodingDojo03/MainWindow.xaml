@@ -54,7 +54,7 @@
             <RowDefinition Height="43*"/>
         </Grid.RowDefinitions>
         <DataGrid HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" AutoGenerateColumns="False"
-                  ItemsSource="{Binding Items}"
+                  ItemsSource="{Binding Items}" SelectionChanged="DataGrid_SelectionChanged"
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
@@ -80,9 +80,9 @@
                   ItemsSource="{Binding Currencies}" SelectedItem="{Binding SelectedCurrency}"
         />
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,0">
-            <Button Content="Add" Height="20" Width="50" Margin="5,0"/>
+            <Button Content="Add" Command="{Binding AddBtnClickedCommand}" Height="20" Width="50" Margin="5,0" x:Name="addButton"/>
             <Button Content="Edit" Height="20" Width="50" Margin="5,0"/>
-            <Button Content="Delete" Height="20" Width="50" Margin="5,0"/>
+            <Button Content="Delete" Command="{Binding DeleteCommand}" Height="20" Width="50" Margin="5,0" x:Name="deleteButton"/>
         </StackPanel>
     </Grid>
 </Window>

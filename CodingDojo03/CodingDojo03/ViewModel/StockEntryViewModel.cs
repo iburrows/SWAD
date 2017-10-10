@@ -12,6 +12,7 @@ namespace CodingDojo03.ViewModel
     {
         private StockEntry stockEntry;
         private double salesPriceInEuro;
+        private double purchasePriceInEuro;
 
         public string Name
         {
@@ -66,11 +67,13 @@ namespace CodingDojo03.ViewModel
         {
             stockEntry = entry;
             salesPriceInEuro = entry.SoftwarePackage.SalesPrice;
+            purchasePriceInEuro = entry.SoftwarePackage.PurchasePrice;
         }
 
         public void CalculateSalesPriceFromEuro(Currencies currency)
         {
             this.SalesPrice = CurrencyConverter.ConvertFromEuroTo(currency, salesPriceInEuro);
+            this.PurchasePrice = CurrencyConverter.ConvertFromEuroTo(currency, purchasePriceInEuro);
         }
 
     }
