@@ -17,27 +17,51 @@ namespace CodingDojo03.ViewModel
         private List<StockEntry> stock;
         public ObservableCollection<StockEntryViewModel> items = new ObservableCollection<StockEntryViewModel>();
         private CodingDojo4DataLib.Converter.Currencies selectedCurrency;
-        private CodingDojo4DataLib.StockEntry selectedStock;
+        private CodingDojo4DataLib.StockEntry selectedItem;
+        //private CodingDojo4DataLib.StockEntry selectedStock;
 
-        private AddCommand addBtnClickedCommand;
-        private DeleteCommand deleteBtnClickedCommand;
+        //private AddCommand addBtnClickedCommand;
+        private RelayCommand addBtnClickedCommand;
+        private RelayCommand deleteBtnClickedCommand;
+        private RelayCommand editBtnClickedCommand;
+        //private DeleteCommand deleteBtnClickedCommand;
 
         //private StockItem newItem;
 
-        public AddCommand AddBtnClickedCommand
+        //public AddCommand AddBtnClickedCommand
+        //{
+        //    get { return addBtnClickedCommand; }
+        //    set { addBtnClickedCommand = value; }
+        //}
+        
+        //Commands start-----------------------
+        public RelayCommand AddBtnClickedCommand
         {
             get { return addBtnClickedCommand; }
             set { addBtnClickedCommand = value; }
         }
 
-        public DeleteCommand DeleteBtnClickedCommand
+        public RelayCommand DeleteBtnClickedCommand
         {
             get { return deleteBtnClickedCommand; }
-            set
-            {
-                deleteBtnClickedCommand = value;
-            }
+            set { deleteBtnClickedCommand = value; }
         }
+
+        public RelayCommand EditBtnClickedCommand
+        {
+            get { return editBtnClickedCommand; }
+            set { editBtnClickedCommand = value; }
+        }
+        //Commands end*****************************
+
+        //public DeleteCommand DeleteBtnClickedCommand
+        //{
+        //    get { return deleteBtnClickedCommand; }
+        //    set
+        //    {
+        //        deleteBtnClickedCommand = value;
+        //    }
+        //}
 
         public Array Currencies
         {
@@ -54,15 +78,15 @@ namespace CodingDojo03.ViewModel
             }
         }
 
-        public StockEntry SelectedStock
-        {
-            get { return SelectedStock; }
-            set {
-                SelectedStock = value;
-                OnChange("SelectedItem");
-                DeleteButtonClicked();
-            }
-        }
+        //public StockEntry SelectedStock
+        //{
+        //    get { return SelectedStock; }
+        //    set {
+        //        SelectedStock = value;
+        //        OnChange("SelectedItem");
+        //        DeleteButtonClicked();
+        //    }
+        //}
 
         private void StartConversion()
         {
@@ -82,7 +106,11 @@ namespace CodingDojo03.ViewModel
         }
         public MainViewModel()
         {
-            AddBtnClickedCommand = new AddCommand(new Action(AddButtonClicked), new Func<bool>(CanExecute));
+            //AddBtnClickedCommand = new AddCommand(new Action(AddButtonClicked), new Func<bool>(CanExecute));
+            AddBtnClickedCommand = new RelayCommand(new Action(AddButtonClicked), new Func<bool>(CanExecute));
+            DeleteBtnClickedCommand = new RelayCommand(new Action(DeleteButtonClicked), new Func<bool>(CanExecute));
+            EditBtnClickedCommand = new RelayCommand(new Action(EditButtonClicked), new Func<bool>(CanExecute));
+
 
             SampleManager manager = new SampleManager();
             stock = manager.CurrentStock.OnStock;
@@ -101,22 +129,17 @@ namespace CodingDojo03.ViewModel
 
         private void AddButtonClicked()
         {
-            //need  to add the item to the stocklist
-            //StockEntry itemStock = new StockEntry();
-            //itemStock.SoftwarePackage.Name = "New";
-            //itemStock.SoftwarePackage.Category.Name = "NewGroup";
-            //itemStock.SoftwarePackage.PurchasePrice = 55.50;
-            //itemStock.SoftwarePackage.SalesPrice = 100.00;
-            //itemStock.Amount = 20;
-
-            StockItem stockItem = new StockItem("New", "NewGroup", 55.50, 100.00, 10);
-            StockEntry itemStock = new StockEntry();
-            stock.Add(itemStock);
+                           
         }
 
         private void DeleteButtonClicked()
         {
-            this.stock.Remove(this.selectedStock);
+            //this.stock.Remove(this.selectedStock);
+        }
+
+        private void EditButtonClicked()
+        {
+
         }
     }
 }

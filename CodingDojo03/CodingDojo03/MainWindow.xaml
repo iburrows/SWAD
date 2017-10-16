@@ -49,13 +49,19 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="37*"/>
+            <RowDefinition Height="43*"/>
             <RowDefinition Height="239*"/>
             <RowDefinition Height="43*"/>
         </Grid.RowDefinitions>
+        
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Margin="20,0"
+                  ItemsSource="{Binding Currencies}" SelectedItem="{Binding SelectedCurrency}"
+        />
+
         <DataGrid HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" AutoGenerateColumns="False"
-                  ItemsSource="{Binding Items}" SelectionChanged="DataGrid_SelectionChanged" SelectedItem="{Binding SelectedStock}"
+                  ItemsSource="{Binding Items}" SelectionChanged="DataGrid_SelectionChanged" SelectedItem="{Binding SelectedStock, Mode=TwoWay}"
                   >
+            
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Group" Binding="{Binding GroupName}"/>
@@ -76,12 +82,10 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Margin="20,0"
-                  ItemsSource="{Binding Currencies}" SelectedItem="{Binding SelectedCurrency}"
-        />
+
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,0">
             <Button Content="Add" Command="{Binding AddBtnClickedCommand}" Height="20" Width="50" Margin="5,0" x:Name="addButton"/>
-            <Button Content="Edit" Height="20" Width="50" Margin="5,0"/>
+            <Button Content="Edit" Height="20" Width="50" Margin="5,0" Command="{Binding EditBtnClickedCommand}"/>
             <Button Content="Delete" Command="{Binding DeleteBtnClickedCommand}" Height="20" Width="50" Margin="5,0" x:Name="deleteButton"/>
         </StackPanel>
     </Grid>
