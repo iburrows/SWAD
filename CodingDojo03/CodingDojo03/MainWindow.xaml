@@ -59,7 +59,7 @@
         />
 
         <DataGrid HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" AutoGenerateColumns="False"
-                  ItemsSource="{Binding Items}" SelectionChanged="DataGrid_SelectionChanged" SelectedItem="{Binding SelectedStock, Mode=TwoWay}"
+                  ItemsSource="{Binding Items}" SelectionChanged="DataGrid_SelectionChanged" SelectedItem="{Binding SelectedItem}"
                   >
             
             <DataGrid.Columns>
@@ -82,7 +82,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-
+        
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,0">
             <Button Content="Add" Command="{Binding AddBtnClickedCommand}" Height="20" Width="50" Margin="5,0" x:Name="addButton"/>
             <Button Content="Edit" Height="20" Width="50" Margin="5,0" Command="{Binding EditBtnClickedCommand}"/>

@@ -17,24 +17,14 @@ namespace CodingDojo03.ViewModel
         private List<StockEntry> stock;
         public ObservableCollection<StockEntryViewModel> items = new ObservableCollection<StockEntryViewModel>();
         private CodingDojo4DataLib.Converter.Currencies selectedCurrency;
-        private CodingDojo4DataLib.StockEntry selectedItem;
-        //private CodingDojo4DataLib.StockEntry selectedStock;
+        private StockEntry selectedItem;
+        private CodingDojo03.ViewModel.StockEntryViewModel selectedVMItem;
 
-        //private AddCommand addBtnClickedCommand;
         private RelayCommand addBtnClickedCommand;
         private RelayCommand deleteBtnClickedCommand;
         private RelayCommand editBtnClickedCommand;
-        //private DeleteCommand deleteBtnClickedCommand;
-
-        //private StockItem newItem;
-
-        //public AddCommand AddBtnClickedCommand
-        //{
-        //    get { return addBtnClickedCommand; }
-        //    set { addBtnClickedCommand = value; }
-        //}
         
-        //Commands start-----------------------
+        //COMMANDS START-----------------------
         public RelayCommand AddBtnClickedCommand
         {
             get { return addBtnClickedCommand; }
@@ -52,7 +42,7 @@ namespace CodingDojo03.ViewModel
             get { return editBtnClickedCommand; }
             set { editBtnClickedCommand = value; }
         }
-        //Commands end*****************************
+        //COMMANDS END*****************************
 
         //public DeleteCommand DeleteBtnClickedCommand
         //{
@@ -78,15 +68,6 @@ namespace CodingDojo03.ViewModel
             }
         }
 
-        //public StockEntry SelectedStock
-        //{
-        //    get { return SelectedStock; }
-        //    set {
-        //        SelectedStock = value;
-        //        OnChange("SelectedItem");
-        //        DeleteButtonClicked();
-        //    }
-        //}
 
         private void StartConversion()
         {
@@ -104,6 +85,27 @@ namespace CodingDojo03.ViewModel
                 items = value;
             }
         }
+
+        public StockEntryViewModel SelectedItem
+        {
+            get { return selectedVMItem;}
+            set
+            {
+                selectedVMItem = value;
+                OnChange("SelectedItem");
+            }
+        }
+
+        public StockEntry SelectedStock
+        {
+            get { return selectedItem; }
+            set
+            {
+                selectedItem = value;
+                OnChange("SelectedStock");
+                //DeleteButtonClicked();
+            }
+        }
         public MainViewModel()
         {
             //AddBtnClickedCommand = new AddCommand(new Action(AddButtonClicked), new Func<bool>(CanExecute));
@@ -117,7 +119,6 @@ namespace CodingDojo03.ViewModel
             foreach (var item in manager.CurrentStock.OnStock)
             {
                 Items.Add(new StockEntryViewModel(item)); //filling the viewmodel data structure
-
             }
         }
 
@@ -129,17 +130,17 @@ namespace CodingDojo03.ViewModel
 
         private void AddButtonClicked()
         {
-                           
+            Items.Add(selectedVMItem);
         }
 
         private void DeleteButtonClicked()
         {
-            //this.stock.Remove(this.selectedStock);
+            Items.Remove(selectedVMItem);
         }
 
         private void EditButtonClicked()
         {
-
+            
         }
     }
 }
