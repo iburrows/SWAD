@@ -62,7 +62,6 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OnStockToColorBrushConverter.cs" />
     <Compile Include="ViewModel\StockEntryViewModel.cs" />
-    <Compile Include="ViewModel\StockItemAddVM.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
