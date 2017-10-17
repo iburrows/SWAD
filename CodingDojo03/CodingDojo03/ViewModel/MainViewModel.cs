@@ -17,7 +17,6 @@ namespace CodingDojo03.ViewModel
         private List<StockEntry> stock;
         public ObservableCollection<StockEntryViewModel> items = new ObservableCollection<StockEntryViewModel>();
         private CodingDojo4DataLib.Converter.Currencies selectedCurrency;
-        private StockEntry selectedItem;
         private CodingDojo03.ViewModel.StockEntryViewModel selectedVMItem;
 
         private RelayCommand addBtnClickedCommand;
@@ -96,16 +95,6 @@ namespace CodingDojo03.ViewModel
             }
         }
 
-        public StockEntry SelectedStock
-        {
-            get { return selectedItem; }
-            set
-            {
-                selectedItem = value;
-                OnChange("SelectedStock");
-                //DeleteButtonClicked();
-            }
-        }
         public MainViewModel()
         {
             //AddBtnClickedCommand = new AddCommand(new Action(AddButtonClicked), new Func<bool>(CanExecute));
