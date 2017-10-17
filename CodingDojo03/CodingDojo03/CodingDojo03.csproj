@@ -57,8 +57,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\AddCommand.cs" />
-    <Compile Include="Commands\DeleteCommand.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
