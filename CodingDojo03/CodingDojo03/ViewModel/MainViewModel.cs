@@ -23,6 +23,9 @@ namespace CodingDojo03.ViewModel
         private RelayCommand deleteBtnClickedCommand;
         private RelayCommand editBtnClickedCommand;
         
+
+        //public ObservableCollection<StockEntryViewModel> Items { get; set; }
+       
         //COMMANDS START-----------------------
         public RelayCommand AddBtnClickedCommand
         {
@@ -42,15 +45,6 @@ namespace CodingDojo03.ViewModel
             set { editBtnClickedCommand = value; }
         }
         //COMMANDS END*****************************
-
-        //public DeleteCommand DeleteBtnClickedCommand
-        //{
-        //    get { return deleteBtnClickedCommand; }
-        //    set
-        //    {
-        //        deleteBtnClickedCommand = value;
-        //    }
-        //}
 
         public Array Currencies
         {
@@ -97,11 +91,11 @@ namespace CodingDojo03.ViewModel
 
         public MainViewModel()
         {
-            //AddBtnClickedCommand = new AddCommand(new Action(AddButtonClicked), new Func<bool>(CanExecute));
             AddBtnClickedCommand = new RelayCommand(new Action(AddButtonClicked), new Func<bool>(CanExecute));
             DeleteBtnClickedCommand = new RelayCommand(new Action(DeleteButtonClicked), new Func<bool>(CanExecute));
             EditBtnClickedCommand = new RelayCommand(new Action(EditButtonClicked), new Func<bool>(CanExecute));
 
+            //Items = new ObservableCollection<StockEntryViewModel>();
 
             SampleManager manager = new SampleManager();
             stock = manager.CurrentStock.OnStock;

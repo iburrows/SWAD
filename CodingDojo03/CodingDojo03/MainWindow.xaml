@@ -59,19 +59,19 @@
         />
 
         <DataGrid HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" AutoGenerateColumns="False"
-                  ItemsSource="{Binding Items}" SelectionChanged="DataGrid_SelectionChanged" SelectedItem="{Binding SelectedItem}"
+                  ItemsSource="{Binding Items}" SelectionChanged="DataGrid_SelectionChanged" SelectedItem="{Binding SelectedItem}" CanUserAddRows="True"
                   >
             
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Group" Binding="{Binding GroupName}"/>
-                <DataGridTextColumn Header="Sales Price" Binding="{Binding SalesPrice}"/>
-                <DataGridTextColumn Header="Purchase Price" Binding="{Binding PurchasePrice}"/>
+                <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Group" Width="*" Binding="{Binding GroupName}"/>
+                <DataGridTextColumn Header="Sales Price" Width="*" Binding="{Binding SalesPrice}"/>
+                <DataGridTextColumn Header="Purchase Price" Width="*" Binding="{Binding PurchasePrice}"/>
                 <!--gets hex color codes-->
                 <!--<DataGridTextColumn Header="On Stock" Binding="{Binding OnStock, Converter={StaticResource StockToBrush}}"/>-->
 
                 <!--solution here: https://stackoverflow.com/questions/13088252/wpf-unable-to-display-ellipse-in-datagridtemplatecolumn--> 
-                <DataGridTemplateColumn CanUserResize="False" Header="On Stock">
+                <DataGridTemplateColumn CanUserResize="False" Header="On Stock" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel>

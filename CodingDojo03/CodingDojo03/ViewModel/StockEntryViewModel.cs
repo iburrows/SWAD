@@ -70,6 +70,12 @@ namespace CodingDojo03.ViewModel
             purchasePriceInEuro = entry.SoftwarePackage.PurchasePrice;
         }
 
+        //empty constructor needed to create the empty row
+        public StockEntryViewModel()
+        { 
+
+        }
+
         public void CalculateSalesPriceFromEuro(Currencies currency)
         {
             this.SalesPrice = CurrencyConverter.ConvertFromEuroTo(currency, salesPriceInEuro);
