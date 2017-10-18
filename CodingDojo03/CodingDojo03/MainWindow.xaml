@@ -59,7 +59,7 @@
         />
 
         <DataGrid Grid.Row="1" VerticalAlignment="Stretch" AutoGenerateColumns="False"
-                  ItemsSource="{Binding Items}" SelectionChanged="DataGrid_SelectionChanged" SelectedItem="{Binding SelectedItem}" CanUserAddRows="True"
+                  HorizontalAlignment="Center" ItemsSource="{Binding Items}" SelectionChanged="DataGrid_SelectionChanged" SelectedItem="{Binding SelectedItem}" CanUserAddRows="True"
                   >
 
             <DataGrid.Columns>
@@ -67,11 +67,12 @@
                 <DataGridTextColumn Header="Group" Width="*" Binding="{Binding GroupName}"/>
                 <DataGridTextColumn Header="Sales Price" Width="*" Binding="{Binding SalesPrice}"/>
                 <DataGridTextColumn Header="Purchase Price" Width="*" Binding="{Binding PurchasePrice}"/>
+                <DataGridTextColumn Header="Stock" Width="*" Binding="{Binding OnStock}"/>
                 <!--gets hex color codes-->
                 <!--<DataGridTextColumn Header="On Stock" Binding="{Binding OnStock, Converter={StaticResource StockToBrush}}"/>-->
 
                 <!--solution here: https://stackoverflow.com/questions/13088252/wpf-unable-to-display-ellipse-in-datagridtemplatecolumn-->
-                <DataGridTemplateColumn CanUserResize="False" Header="On Stock" Width="*">
+                <DataGridTemplateColumn CanUserResize="False" Header="Stock Indicator" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel>
@@ -86,7 +87,7 @@
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,0">
             <!--<Button Content="Add" Command="{Binding AddBtnClickedCommand}" Height="20" Width="50" Margin="5,0" x:Name="addButton"/>-->
             <!--<Button Content="Edit" Height="20" Width="50" Margin="5,0" Command="{Binding EditBtnClickedCommand}"/>-->
-            <Button Content="Delete" Command="{Binding DeleteBtnClickedCommand}" Height="20" Width="50" Margin="5,0" x:Name="deleteButton"/>
+            <Button Content="Delete" Command="{Binding DeleteBtnClickedCommand}" Height="30" Width="50" Margin="5,0" x:Name="deleteButton" FontWeight="Bold"/>
         </StackPanel>
     </Grid>
 </Window>
