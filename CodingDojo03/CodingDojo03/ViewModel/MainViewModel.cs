@@ -46,6 +46,7 @@ namespace CodingDojo03.ViewModel
         }
         //COMMANDS END*****************************
 
+        //CURRENCY START-----------------------
         public Array Currencies
         {
             get { return Enum.GetValues(typeof(Currencies)); }
@@ -69,6 +70,7 @@ namespace CodingDojo03.ViewModel
                 item.CalculateSalesPriceFromEuro(SelectedCurrency);
             }
         }
+        //CURRENCY END*****************************
 
         public ObservableCollection<StockEntryViewModel> Items
         {
@@ -95,7 +97,7 @@ namespace CodingDojo03.ViewModel
             DeleteBtnClickedCommand = new RelayCommand(new Action(DeleteButtonClicked), new Func<bool>(CanExecute));
             EditBtnClickedCommand = new RelayCommand(new Action(EditButtonClicked), new Func<bool>(CanExecute));
 
-            //Items = new ObservableCollection<StockEntryViewModel>();
+            selectedVMItem = new StockEntryViewModel();
 
             SampleManager manager = new SampleManager();
             stock = manager.CurrentStock.OnStock;
@@ -107,20 +109,20 @@ namespace CodingDojo03.ViewModel
 
         private bool CanExecute()
         {
-            //need to check this
             return true;
         }
 
+        //add button logic
         private void AddButtonClicked()
         {
             Items.Add(selectedVMItem);
         }
-
+        //delete button logic
         private void DeleteButtonClicked()
         {
             Items.Remove(selectedVMItem);
         }
-
+        //edit button logic
         private void EditButtonClicked()
         {
             

@@ -72,8 +72,16 @@ namespace CodingDojo03.ViewModel
 
         //empty constructor needed to create the empty row
         public StockEntryViewModel()
-        { 
-
+        {
+            stockEntry = new StockEntry();
+            stockEntry.Amount = 0;
+            stockEntry.SoftwarePackage = new Software("New Software");
+            stockEntry.SoftwarePackage.Name = "Enter Name";
+            stockEntry.SoftwarePackage.PurchasePrice = 0;
+            stockEntry.SoftwarePackage.SalesPrice = 0;
+            stockEntry.SoftwarePackage.Category = new Group();
+            stockEntry.SoftwarePackage.Category.Name = "Enter Name";
+            
         }
 
         public void CalculateSalesPriceFromEuro(Currencies currency)
