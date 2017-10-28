@@ -1,0 +1,235 @@
+commit ab3749f66ac7f706a30d1f2912bea2fabd6b774b
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Wed Oct 18 11:22:03 2017 +0200
+
+    Added in stock column without color to be able to change the stock
+
+:100644 100644 db807d4... a2e630f... M	CodingDojo03/CodingDojo03/MainWindow.xaml
+
+commit 0e8f8213c272b10917918beac367d2c0f3a56674
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Wed Oct 18 10:54:45 2017 +0200
+
+    Removed delete button and edit button. Added default stock item to stop null error when adding a new item in View
+
+:100644 100644 2adf3fd... db807d4... M	CodingDojo03/CodingDojo03/MainWindow.xaml
+:100644 100644 2843f3b... b47f475... M	CodingDojo03/CodingDojo03/ViewModel/MainViewModel.cs
+:100644 100644 5cbc112... dfbbdd5... M	CodingDojo03/CodingDojo03/ViewModel/StockEntryViewModel.cs
+
+commit a62c7f3df747ba5d21f9cc4c0e8814dbfb211b9c
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Tue Oct 17 17:03:30 2017 +0200
+
+    Added new row with empty constructor in StockEntryViewModel
+
+:100644 100644 094ba41... 2adf3fd... M	CodingDojo03/CodingDojo03/MainWindow.xaml
+:100644 100644 d218db0... 2843f3b... M	CodingDojo03/CodingDojo03/ViewModel/MainViewModel.cs
+:100644 100644 4b305f3... 5cbc112... M	CodingDojo03/CodingDojo03/ViewModel/StockEntryViewModel.cs
+
+commit 9a13ca18400bbd2b8da9a66da42b300ecea6420e
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Tue Oct 17 11:55:02 2017 +0200
+
+    Removed stock item add, not needed
+
+:100644 100644 5b8303e... a93b6fe... M	CodingDojo03/CodingDojo03/CodingDojo03.csproj
+:100644 000000 6d11a95... 0000000... D	CodingDojo03/CodingDojo03/ViewModel/StockItemAddVM.cs
+
+commit e8df0960ae577e5ec9fe02a68f1be59460de455a
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Tue Oct 17 11:54:21 2017 +0200
+
+    Removed add command and delete command as functionality is in relay command
+
+:100644 100644 fd646c3... 5b8303e... M	CodingDojo03/CodingDojo03/CodingDojo03.csproj
+:100644 000000 b457a17... 0000000... D	CodingDojo03/CodingDojo03/Commands/AddCommand.cs
+:100644 000000 51e1708... 0000000... D	CodingDojo03/CodingDojo03/Commands/DeleteCommand.cs
+
+commit 447feab0ff604c5f862876a03c0ad8cb688eae02
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Tue Oct 17 11:53:00 2017 +0200
+
+    Removed incorrrect selectedItem which was stockEntry type
+
+:100644 100644 dfb7509... d218db0... M	CodingDojo03/CodingDojo03/ViewModel/MainViewModel.cs
+
+commit 2def95355f1364ff2ebbb7b0253b4f13282cd2d6
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Tue Oct 17 11:44:20 2017 +0200
+
+    Add and Delete working
+
+:100644 100644 8b27b34... 094ba41... M	CodingDojo03/CodingDojo03/MainWindow.xaml
+:100644 100644 699a120... dfb7509... M	CodingDojo03/CodingDojo03/ViewModel/MainViewModel.cs
+
+commit f6c4ec4f307db3362a4c49b747d72f1b14eafc25
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Mon Oct 16 14:46:15 2017 +0200
+
+    Added delete and edit commands
+
+:100644 100644 739472c... fd646c3... M	CodingDojo03/CodingDojo03/CodingDojo03.csproj
+:000000 100644 0000000... cd2d0b5... A	CodingDojo03/CodingDojo03/Commands/RelayCommand.cs
+:100644 100644 6435b8b... 8b27b34... M	CodingDojo03/CodingDojo03/MainWindow.xaml
+:100644 000000 d86c8ca... 0000000... D	CodingDojo03/CodingDojo03/Models/StockItem.cs
+:100644 000000 2c20339... 0000000... D	CodingDojo03/CodingDojo03/ViewModel/AddItem.cs
+:100644 100644 1d9626e... 699a120... M	CodingDojo03/CodingDojo03/ViewModel/MainViewModel.cs
+:100644 100644 4b3e967... 6d11a95... M	CodingDojo03/CodingDojo03/ViewModel/StockItemAddVM.cs
+
+commit 1c7b6566ca10ba88c4450fde40dc9438b9fa6523
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Tue Oct 10 16:45:47 2017 +0200
+
+    Delete Command
+
+:100644 100644 6a1c39e... 6435b8b... M	CodingDojo03/CodingDojo03/MainWindow.xaml
+:100644 100644 003ff75... 1d9626e... M	CodingDojo03/CodingDojo03/ViewModel/MainViewModel.cs
+
+commit 09f587a29379f08abe91fc9d37750ff0336a59e6
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Tue Oct 10 15:54:36 2017 +0200
+
+    AddCommand and DeleteCommand
+
+:100644 100644 b3273a2... 739472c... M	CodingDojo03/CodingDojo03/CodingDojo03.csproj
+:000000 100644 0000000... b457a17... A	CodingDojo03/CodingDojo03/Commands/AddCommand.cs
+:000000 100644 0000000... 51e1708... A	CodingDojo03/CodingDojo03/Commands/DeleteCommand.cs
+:100644 100644 16b60ad... 6a1c39e... M	CodingDojo03/CodingDojo03/MainWindow.xaml
+:100644 100644 070e991... 8092451... M	CodingDojo03/CodingDojo03/MainWindow.xaml.cs
+:000000 100644 0000000... d86c8ca... A	CodingDojo03/CodingDojo03/Models/StockItem.cs
+:100644 100644 6096e9a... 2c20339... R077	CodingDojo03/CodingDojo03/ViewModel/Ellipse.cs	CodingDojo03/CodingDojo03/ViewModel/AddItem.cs
+:100644 100644 96e2224... 003ff75... M	CodingDojo03/CodingDojo03/ViewModel/MainViewModel.cs
+:100644 100644 00dce87... 4b305f3... M	CodingDojo03/CodingDojo03/ViewModel/StockEntryViewModel.cs
+:000000 100644 0000000... 4b3e967... A	CodingDojo03/CodingDojo03/ViewModel/StockItemAddVM.cs
+
+commit 94b367f95f269541fa2d1cfdb2c15c91dd218ccc
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Sat Oct 7 13:51:32 2017 +0200
+
+    Added ViewModel
+
+:100644 000000 2a9c427... 0000000... D	CodingDojo02Node/CodingDojo02Node/CodingDojo02Node.csproj
+:100644 000000 9821087... 0000000... D	CodingDojo02Node/CodingDojo02Node/Properties/AssemblyInfo.cs
+:100644 100644 a4ae1aa... 71a4f9d... R060	CodingDojo02Node/CodingDojo02Node.sln	CodingDojo03/CodingDojo03.sln
+:100644 100644 731f6de... 731f6de... R100	CodingDojo02Node/CodingDojo02Node/App.config	CodingDojo03/CodingDojo03/App.config
+:000000 100644 0000000... 2e506c5... A	CodingDojo03/CodingDojo03/App.xaml
+:000000 100644 0000000... b9df2ac... A	CodingDojo03/CodingDojo03/App.xaml.cs
+:000000 100644 0000000... b3273a2... A	CodingDojo03/CodingDojo03/CodingDojo03.csproj
+:000000 100644 0000000... 16b60ad... A	CodingDojo03/CodingDojo03/MainWindow.xaml
+:000000 100644 0000000... 070e991... A	CodingDojo03/CodingDojo03/MainWindow.xaml.cs
+:000000 100644 0000000... f8d44fb... A	CodingDojo03/CodingDojo03/Properties/AssemblyInfo.cs
+:000000 100644 0000000... f96e17d... A	CodingDojo03/CodingDojo03/Properties/Resources.Designer.cs
+:000000 100644 0000000... af7dbeb... A	CodingDojo03/CodingDojo03/Properties/Resources.resx
+:000000 100644 0000000... 0bb0122... A	CodingDojo03/CodingDojo03/Properties/Settings.Designer.cs
+:000000 100644 0000000... 033d7a5... A	CodingDojo03/CodingDojo03/Properties/Settings.settings
+:000000 100644 0000000... 9a9e6a9... A	CodingDojo03/CodingDojo03/ViewModel/BaseViewModel.cs
+:100644 100644 9c9b3a7... 6096e9a... R056	CodingDojo02Node/CodingDojo02Node/Program/Program.cs	CodingDojo03/CodingDojo03/ViewModel/Ellipse.cs
+:000000 100644 0000000... 96e2224... A	CodingDojo03/CodingDojo03/ViewModel/MainViewModel.cs
+:000000 100644 0000000... fdc1b35... A	CodingDojo03/CodingDojo03/ViewModel/OnStockToColorBrushConverter.cs
+:000000 100644 0000000... 00dce87... A	CodingDojo03/CodingDojo03/ViewModel/StockEntryViewModel.cs
+
+commit 24af6ff9d3203d96220c30664c7a64e3f79201d9
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Mon Sep 18 12:38:05 2017 +0200
+
+    Node
+
+:000000 100644 0000000... 3406a81... A	CodingDojo01 wi16b116.zip
+:100644 100644 4f57ad7... 1f2e687... M	CodingDojo01/CodingDojo01/Program.cs
+:000000 100644 0000000... a4ae1aa... A	CodingDojo02Node/CodingDojo02Node.sln
+:000000 100644 0000000... 731f6de... A	CodingDojo02Node/CodingDojo02Node/App.config
+:000000 100644 0000000... 2a9c427... A	CodingDojo02Node/CodingDojo02Node/CodingDojo02Node.csproj
+:000000 100644 0000000... 9c9b3a7... A	CodingDojo02Node/CodingDojo02Node/Program/Program.cs
+:000000 100644 0000000... 9821087... A	CodingDojo02Node/CodingDojo02Node/Properties/AssemblyInfo.cs
+:000000 100644 0000000... 3350b52... A	log.txt
+
+commit efab7fc9c77f4f65cccf0e3077293dda6c0a87e3
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Fri Sep 15 15:51:55 2017 +0200
+
+    Pop implemented
+
+:100644 100644 e9e3ee3... 972ee4f... M	CodingDojo02/CodingDojo02/Program.cs
+
+commit 50078510a174fdc03b1fd9d82ef6e175546c84fb
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Fri Sep 15 15:23:00 2017 +0200
+
+    Got the stack working
+
+:100644 100644 af0dd93... e9e3ee3... M	CodingDojo02/CodingDojo02/Program.cs
+
+commit e8fb5cee6fdb7873f80dbb08647916cd8c1da08d
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Thu Sep 14 16:51:36 2017 +0200
+
+    Addition
+
+:100644 100644 578caf5... af0dd93... M	CodingDojo02/CodingDojo02/Program.cs
+
+commit 674c54882974424ee38d4529630e896f2080be70
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Thu Sep 14 15:41:57 2017 +0200
+
+    Created class color and stack
+
+:000000 100644 0000000... e728d96... A	CodingDojo02/CodingDojo02/Class1.cs
+:100644 100644 7ac85ec... 578caf5... M	CodingDojo02/CodingDojo02/Program.cs
+
+commit 2524e164db24c8dd04b1b851a51e62eb36adacda
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Thu Sep 14 13:52:16 2017 +0200
+
+    Beginning of Coding Dojo 02
+
+:000000 100644 0000000... fb0cbb4... A	CodingDojo02/CodingDojo02.sln
+:000000 100644 0000000... 731f6de... A	CodingDojo02/CodingDojo02/App.config
+:000000 100644 0000000... 622200c... A	CodingDojo02/CodingDojo02/CodingDojo02.csproj
+:000000 100644 0000000... 7ac85ec... A	CodingDojo02/CodingDojo02/Program.cs
+:000000 100644 0000000... c19c3fd... A	CodingDojo02/CodingDojo02/Properties/AssemblyInfo.cs
+
+commit 8bc3f6633b36a786061042761c0918af4db3482e
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Wed Sep 13 21:51:41 2017 +0200
+
+    Kelvin converter and Reaumur converter
+
+:100644 100644 8dfd227... 4f57ad7... M	CodingDojo01/CodingDojo01/Program.cs
+
+commit 77f98cd7b1d6a1b29e38fa8ad9bdde009431340b
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Wed Sep 13 21:46:08 2017 +0200
+
+    FahrenheitConverter
+
+:100644 100644 1b4e0f1... 8dfd227... M	CodingDojo01/CodingDojo01/Program.cs
+
+commit e29b4398c9f35a9187e7e8d4b8cd7f27189d3c1f
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Wed Sep 13 21:38:37 2017 +0200
+
+    Add celcius converter
+
+:100644 100644 6452bbb... 1b4e0f1... M	CodingDojo01/CodingDojo01/Program.cs
+
+commit d6073eb92fe884bf69756c9c23b129ba1d618b9a
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Wed Sep 13 21:36:07 2017 +0200
+
+    Switch statement
+
+:100644 100644 6076555... 6452bbb... M	CodingDojo01/CodingDojo01/Program.cs
+
+commit a0b653d1d1e54931814ad43850d919494d6b9341
+Author: Ian <ianburrows.sa@gmail.com>
+Date:   Wed Sep 13 21:10:37 2017 +0200
+
+    Creation of Coding Dojo 01
+
+:000000 100644 0000000... 1ff0c42... A	.gitattributes
+:000000 100644 0000000... 3c4efe2... A	.gitignore
+:000000 100644 0000000... a8fcf84... A	CodingDojo01/CodingDojo01.sln
+:000000 100644 0000000... 731f6de... A	CodingDojo01/CodingDojo01/App.config
+:000000 100644 0000000... 3c39d56... A	CodingDojo01/CodingDojo01/CodingDojo01.csproj
+:000000 100644 0000000... 6076555... A	CodingDojo01/CodingDojo01/Program.cs
+:000000 100644 0000000... c218ec4... A	CodingDojo01/CodingDojo01/Properties/AssemblyInfo.cs
