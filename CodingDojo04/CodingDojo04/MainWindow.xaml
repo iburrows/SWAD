@@ -8,6 +8,52 @@
         Title="MainWindow" Height="350" Width="525"
         DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="200*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                    <Label Content="First Name" Grid.Row="0" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding FirstName}" Height="25" Width="100" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+
+                    <Label Content="Last Name" Grid.Row="1" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding LastName}" Height="25" Width="100" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+
+                    <Label Content="Social Security Number" Grid.Row="2" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding Ssn}" Height="25" Width="100" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+
+                    <Label Content="Birthdate" Grid.Row="3" VerticalAlignment="Center"/>
+                <DatePicker SelectedDate="{Binding Date}" Height="30" Width="110" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0" FirstDayOfWeek="Monday"/>
+            </Grid>
+            <Button Content="Add" Width="50" HorizontalAlignment="Right" Margin="0,90,10,5" VerticalAlignment="Bottom" Command="{Binding ClickBtnCommand}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Stretch">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="280*"/>
+                    <RowDefinition Height="70*"/>
+                </Grid.RowDefinitions>
+            <DataGrid VerticalAlignment="Stretch" AutoGenerateColumns="False" HorizontalAlignment="Center" Grid.Row="0" Height="280" Margin="0,0,5,0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Social Security Number" Width="*"/>
+                    <DataGridTextColumn Header="Last Name" Width="*"/>
+                    <DataGridTextColumn Header="First Name" Width="*"/>
+                    <DataGridTextColumn Header="Birth Date" Width="*"/>
+                </DataGrid.Columns>
+                
+            </DataGrid>
+            <Button Content="Load Data" Width="60" Grid.Row="1" Margin="50,10,0,5"/>
+            <Button Content="Save Data" Width="60" Grid.Row="1" HorizontalAlignment="Right" Margin="50,10,10, 5"/>
+            </Grid>
+        </StackPanel>
         
     </Grid>
+
 </Window>
