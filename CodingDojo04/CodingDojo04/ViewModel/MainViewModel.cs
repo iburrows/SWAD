@@ -2,6 +2,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using System;
 using System.Collections.ObjectModel;
+using System.IO;
 
 namespace CodingDojo04.ViewModel
 {
@@ -10,14 +11,15 @@ namespace CodingDojo04.ViewModel
     {
         private string firstName = "";
         private string lastName = "";
-        private int sSn;
-        private string date;
+        private int sSn = 0;
+        private DateTime date = DateTime.Now;
 
         private bool isClickable;
         private ObservableCollection<MainViewModel> users = new ObservableCollection<MainViewModel>();
 
 
         RelayCommand clickBtnCommand;
+        RelayCommand clickSaveBtnCommand;
 
         public ObservableCollection<MainViewModel> Users
         {
@@ -28,7 +30,7 @@ namespace CodingDojo04.ViewModel
             }
         }
 
-        public string Date
+        public DateTime Date
         {
             get { return date; }
             set { date = value; }
@@ -59,11 +61,30 @@ namespace CodingDojo04.ViewModel
         }
 
         public RelayCommand ClickBtnCommand { get => clickBtnCommand; set => clickBtnCommand = value; }
+        public RelayCommand ClickSaveBtnCommand { get => clickSaveBtnCommand; set => clickSaveBtnCommand = value; }
 
         public MainViewModel()
         {
             //ClickBtnCommand = new RelayCommand(new Action(ExecuteAdd), new Func<bool>(CanExecuteAdd));
             ClickBtnCommand = new RelayCommand(new Action(ExecuteAdd), () => { if (LastName.Length > 2) { return true; } else { return false; } });
+            ClickSaveBtnCommand = new RelayCommand(new Action(ExecuteSave));
+        }
+
+        private void ExecuteSave()
+        {
+            string myDocPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string[] lines = new string[20];
+            //File.WriteAllLines(myDocPath + @"TheFile.txt", );
+            //File.AppendAllLines(myDocPath + @"\WriteFile.txt", lines);
+            int i = 0;
+            foreach (var item in users)
+            {
+                lines[i] = item.sSn+ " " + item.lastName + " " + item.firstName + " " + item.date.Day + "." + item.date.Month + "." + item.date.Year;
+                i++;
+                
+            }
+
+            File.WriteAllLines(myDocPath + @"\MyFile.txt", lines);
         }
 
         private bool CanExecuteAdd()
@@ -78,10 +99,10 @@ namespace CodingDojo04.ViewModel
         private void ExecuteAdd()
         {
             MainViewModel user = new MainViewModel();
-            user.firstName = "Ian";
-            user.lastName = "Burrows";
-            user.sSn = 123;
-            user.date = "2017-10-29";
+            user.firstName = firstName;
+            user.lastName = lastName;
+            user.sSn = sSn;
+            user.date = date;
 
             Users.Add(user);
             //add logic to add the data to the list
