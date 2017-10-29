@@ -40,12 +40,12 @@
                     <RowDefinition Height="280*"/>
                     <RowDefinition Height="70*"/>
                 </Grid.RowDefinitions>
-            <DataGrid VerticalAlignment="Stretch" AutoGenerateColumns="False" HorizontalAlignment="Center" Grid.Row="0" Height="280" Margin="0,0,5,0">
+            <DataGrid ItemsSource="{Binding Users}" VerticalAlignment="Stretch" AutoGenerateColumns="False" HorizontalAlignment="Center" Grid.Row="0" Height="280" Margin="0,0,5,0">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Social Security Number" Width="*"/>
-                    <DataGridTextColumn Header="Last Name" Width="*"/>
-                    <DataGridTextColumn Header="First Name" Width="*"/>
-                    <DataGridTextColumn Header="Birth Date" Width="*"/>
+                    <DataGridTextColumn Header="Social Security Number" Width="*" Binding="{Binding Ssn}"/>
+                    <DataGridTextColumn Header="Last Name" Width="*" Binding="{Binding LastName}"/>
+                    <DataGridTextColumn Header="First Name" Width="*" Binding="{Binding FirstName}"/>
+                    <DataGridTextColumn Header="Birth Date" Width="*" Binding="{Binding Date}"/>
                 </DataGrid.Columns>
                 
             </DataGrid>

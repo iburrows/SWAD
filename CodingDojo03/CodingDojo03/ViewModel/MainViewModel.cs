@@ -13,7 +13,6 @@ namespace CodingDojo03.ViewModel
 {
     class MainViewModel : BaseViewModel
     {
-
         private List<StockEntry> stock;
         public ObservableCollection<StockEntryViewModel> items = new ObservableCollection<StockEntryViewModel>();
         private CodingDojo4DataLib.Converter.Currencies selectedCurrency;
