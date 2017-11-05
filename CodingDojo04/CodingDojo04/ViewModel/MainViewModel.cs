@@ -75,14 +75,14 @@ namespace CodingDojo04.ViewModel
 
         private void ExecuteLoad()
         {
-            string text = System.IO.File.ReadAllText(@"C:\Users\Ian\Documents\MyFile.txt");
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Ian\Documents\MyFile.txt");
+            //string text = System.IO.File.ReadAllText(@"C:\Users\Ian\Documents\MyFile.csv");
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Ian\Documents\MyFile.csv");
 
             
             foreach (string line in lines)
             {
                 MainViewModel user = new MainViewModel();
-                string[] userFromFile = line.Split(null);
+                string[] userFromFile = line.Split(',');
  
                     user.sSn = Int32.Parse(userFromFile[0]);
                     user.lastName = userFromFile[1];
@@ -123,7 +123,7 @@ namespace CodingDojo04.ViewModel
         {
             try
             {
-                string text = System.IO.File.ReadAllText(@"C:\Users\Ian\Documents\MyFile.txt");
+                string text = System.IO.File.ReadAllText(@"C:\Users\Ian\Documents\MyFile.csv");
                 return true;
             }
             catch (FileNotFoundException)
