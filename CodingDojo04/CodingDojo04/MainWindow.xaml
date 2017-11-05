@@ -50,7 +50,7 @@ https://stackoverflow.com/questions/20464882/how-to-display-only-datepart-in-wpf
                 </DataGrid.Columns>
                 
             </DataGrid>
-            <Button Content="Load Data" Width="60" Grid.Row="1" Margin="50,10,0,5"/>
+            <Button Content="Load Data" Width="60" Grid.Row="1" Margin="50,10,0,5" Command="{Binding ClickLoadBtnCommand}"/>
             <Button Content="Save Data" Width="60" Grid.Row="1" HorizontalAlignment="Right" Margin="50,10,10,5" Command="{Binding ClickSaveBtnCommand}"/>
             </Grid>
         </StackPanel>

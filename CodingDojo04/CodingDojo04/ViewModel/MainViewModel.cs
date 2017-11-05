@@ -20,6 +20,7 @@ namespace CodingDojo04.ViewModel
 
         RelayCommand clickBtnCommand;
         RelayCommand clickSaveBtnCommand;
+        RelayCommand clickLoadBtnCommand;
 
         public ObservableCollection<MainViewModel> Users
         {
@@ -62,34 +63,79 @@ namespace CodingDojo04.ViewModel
 
         public RelayCommand ClickBtnCommand { get => clickBtnCommand; set => clickBtnCommand = value; }
         public RelayCommand ClickSaveBtnCommand { get => clickSaveBtnCommand; set => clickSaveBtnCommand = value; }
+        public RelayCommand ClickLoadBtnCommand { get => clickLoadBtnCommand; set => clickLoadBtnCommand = value; }
 
         public MainViewModel()
         {
             //ClickBtnCommand = new RelayCommand(new Action(ExecuteAdd), new Func<bool>(CanExecuteAdd));
             ClickBtnCommand = new RelayCommand(new Action(ExecuteAdd), () => { if (LastName.Length > 2) { return true; } else { return false; } });
-            ClickSaveBtnCommand = new RelayCommand(new Action(ExecuteSave));
+            ClickSaveBtnCommand = new RelayCommand(new Action(ExecuteSave), new Func<bool>(CanExecuteSave));
+            ClickLoadBtnCommand = new RelayCommand(new Action(ExecuteLoad), new Func<bool>(CanExecuteLoad));
+        }
+
+        private void ExecuteLoad()
+        {
+            string text = System.IO.File.ReadAllText(@"C:\Users\Ian\Documents\MyFile.txt");
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Ian\Documents\MyFile.txt");
+
+            
+            foreach (string line in lines)
+            {
+                MainViewModel user = new MainViewModel();
+                string[] userFromFile = line.Split(null);
+ 
+                    user.sSn = Int32.Parse(userFromFile[0]);
+                    user.lastName = userFromFile[1];
+                    user.firstName = userFromFile[2];
+
+                    string[] date = userFromFile[3].Split('.');
+                    DateTime birthDate = new DateTime(Int32.Parse(date[2]), Int32.Parse(date[1]), Int32.Parse(date[0]));
+                    user.date = birthDate;
+                    Users.Add(user);
+            }
         }
 
         private void ExecuteSave()
         {
             string myDocPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string[] lines = new string[20];
-            //File.WriteAllLines(myDocPath + @"TheFile.txt", );
-            //File.AppendAllLines(myDocPath + @"\WriteFile.txt", lines);
+
+            string[] lines = new string[users.Count];
+
             int i = 0;
             foreach (var item in users)
             {
-                lines[i] = item.sSn+ " " + item.lastName + " " + item.firstName + " " + item.date.Day + "." + item.date.Month + "." + item.date.Year;
+                lines[i] = item.sSn+ "," + item.lastName + "," + item.firstName + "," + item.date.Day + "." + item.date.Month + "." + item.date.Year;
                 i++;
-                
             }
-
-            File.WriteAllLines(myDocPath + @"\MyFile.txt", lines);
+            File.WriteAllLines(myDocPath + @"\MyFile.csv", lines);
         }
 
         private bool CanExecuteAdd()
         {
             if (LastName.Length > 2)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool CanExecuteLoad()
+        {
+            try
+            {
+                string text = System.IO.File.ReadAllText(@"C:\Users\Ian\Documents\MyFile.txt");
+                return true;
+            }
+            catch (FileNotFoundException)
+            {
+
+                return false;
+            }
+        }
+
+        private bool CanExecuteSave()
+        {
+            if (Users.Count > 0)
             {
                 return true;
             }
@@ -105,8 +151,6 @@ namespace CodingDojo04.ViewModel
             user.date = date;
 
             Users.Add(user);
-            //add logic to add the data to the list
-            
         }
     }
 }
