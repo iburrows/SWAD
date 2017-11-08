@@ -43,7 +43,7 @@ https://stackoverflow.com/questions/20464882/how-to-display-only-datepart-in-wpf
                 </Grid.RowDefinitions>
             <DataGrid ItemsSource="{Binding Users}" VerticalAlignment="Stretch" AutoGenerateColumns="False" HorizontalAlignment="Center" Grid.Row="0" Height="280" Margin="0,0,5,0">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Social Security Number" Width="*" Binding="{Binding Ssn}"/>
+                    <DataGridTextColumn Header="Social Security Number" Width="*" Binding="{Binding SSN}"/>
                     <DataGridTextColumn Header="Last Name" Width="*" Binding="{Binding LastName}"/>
                     <DataGridTextColumn Header="First Name" Width="*" Binding="{Binding FirstName}"/>
                     <DataGridTextColumn Header="Birth Date" Width="*" Binding="{Binding Date}"/>

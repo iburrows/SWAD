@@ -11,18 +11,17 @@ namespace CodingDojo04.ViewModel
     {
         private string firstName = "";
         private string lastName = "";
-        private int sSn = 0;
+        private int sSn;
         private DateTime date = DateTime.Now;
 
         private bool isClickable;
-        private ObservableCollection<MainViewModel> users = new ObservableCollection<MainViewModel>();
-
+        private ObservableCollection<UserViewModel> users = new ObservableCollection<UserViewModel>();
 
         RelayCommand clickBtnCommand;
         RelayCommand clickSaveBtnCommand;
         RelayCommand clickLoadBtnCommand;
 
-        public ObservableCollection<MainViewModel> Users
+        public ObservableCollection<UserViewModel> Users
         {
             get { return users; }
             set
@@ -37,7 +36,7 @@ namespace CodingDojo04.ViewModel
             set { date = value; }
         }
 
-       public int Ssn
+        public int SSN
         {
             get { return sSn; }
             set { sSn = value; }
@@ -68,7 +67,7 @@ namespace CodingDojo04.ViewModel
         public MainViewModel()
         {
             //ClickBtnCommand = new RelayCommand(new Action(ExecuteAdd), new Func<bool>(CanExecuteAdd));
-            ClickBtnCommand = new RelayCommand(new Action(ExecuteAdd), () => { if (LastName.Length > 2) { return true; } else { return false; } });
+            ClickBtnCommand = new RelayCommand(new Action(ExecuteAdd), () => { if (lastName.Length > 2) { return true; } else { return false; } });
             ClickSaveBtnCommand = new RelayCommand(new Action(ExecuteSave), new Func<bool>(CanExecuteSave));
             ClickLoadBtnCommand = new RelayCommand(new Action(ExecuteLoad), new Func<bool>(CanExecuteLoad));
         }
@@ -81,17 +80,15 @@ namespace CodingDojo04.ViewModel
             
             foreach (string line in lines)
             {
-                MainViewModel user = new MainViewModel();
+                
                 string[] userFromFile = line.Split(',');
- 
-                    user.sSn = Int32.Parse(userFromFile[0]);
-                    user.lastName = userFromFile[1];
-                    user.firstName = userFromFile[2];
 
-                    string[] date = userFromFile[3].Split('.');
-                    DateTime birthDate = new DateTime(Int32.Parse(date[2]), Int32.Parse(date[1]), Int32.Parse(date[0]));
-                    user.date = birthDate;
-                    Users.Add(user);
+                string[] date = userFromFile[3].Split('.');
+                DateTime birthDate = new DateTime(Int32.Parse(date[2]), Int32.Parse(date[1]), Int32.Parse(date[0]));
+                
+                UserViewModel user = new UserViewModel(userFromFile[2], userFromFile[1], birthDate, Int32.Parse(userFromFile[0]));
+
+                Users.Add(user);
             }
         }
 
@@ -104,7 +101,7 @@ namespace CodingDojo04.ViewModel
             int i = 0;
             foreach (var item in users)
             {
-                lines[i] = item.sSn+ "," + item.lastName + "," + item.firstName + "," + item.date.Day + "." + item.date.Month + "." + item.date.Year;
+                lines[i] = item.SSN + "," + item.LastName + "," + item.FirstName + "," + item.Date.Day + "." + item.Date.Month + "." + item.Date.Year;
                 i++;
             }
             File.WriteAllLines(myDocPath + @"\MyFile.csv", lines);
@@ -128,7 +125,6 @@ namespace CodingDojo04.ViewModel
             }
             catch (FileNotFoundException)
             {
-
                 return false;
             }
         }
@@ -144,11 +140,7 @@ namespace CodingDojo04.ViewModel
 
         private void ExecuteAdd()
         {
-            MainViewModel user = new MainViewModel();
-            user.firstName = firstName;
-            user.lastName = lastName;
-            user.sSn = sSn;
-            user.date = date;
+            UserViewModel user = new UserViewModel(firstName, lastName , date, sSn);
 
             Users.Add(user);
         }
