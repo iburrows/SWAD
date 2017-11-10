@@ -6,8 +6,41 @@
         xmlns:local="clr-namespace:CodingDojo05_Server"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525"
-        DataContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}">
+        DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="200*"/>
+        </Grid.RowDefinitions>
+
+
+        <Button Height="40" Width="100" Content="Start" Grid.Row="0" HorizontalAlignment="Right" FontSize="18" Margin="0,0,120,0"/>
+        <Button Height="40" Width="100" Content="Stop" Grid.Row="0" HorizontalAlignment="Right" FontSize="18" Margin="0,0,10,0"/>
+
+        <TabControl Grid.Row="1" Height="20" >
+            <TabItem Header="Chat"/>
+            <TabItem Header="Logs"/>
+        </TabControl>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="58*"/>
+                <ColumnDefinition Width="200*"/>
+                <ColumnDefinition Width="259*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Connected Users:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+            <TextBox BorderBrush="Black" Grid.Row="0" Grid.Column="0" Margin="5,30,5,5" Grid.ColumnSpan="2"/>
+
+            <Label Content="Received Messages:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Grid.Column="2"/>
+            <TextBox BorderBrush="Black" Grid.Column="2" Margin="5,30,5,45"/>
+            <Button Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="35" Content="Save to log" Margin="5,0,5,5"/>
+
+        </Grid>
+
+
+
+
     </Grid>
 </Window>

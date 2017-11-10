@@ -6,8 +6,28 @@
         xmlns:local="clr-namespace:CodingDojo05"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525"
-        DataContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}">
+        DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+    
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="200*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
         
+        <Label Grid.Row="0" Content="Chat Name: " HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="0" Height="20" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="85,0,0,0"/>
+        <Button Grid.Row="0" Height="20" Width="60" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0" Content="Connect"/>
+
+        <Label Grid.Row="1" Content="Messages" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="1" Margin="5,25,5,0" BorderBrush="Black">
+            
+        </TextBox>
+        
+        <Label Grid.Row="2" Content="Message: " HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="2" Height="20" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="85,0,0,0"/>
+        <Button Grid.Row="2" Height="20" Width="120" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0" Content="Send"/>
+
+
     </Grid>
 </Window>
