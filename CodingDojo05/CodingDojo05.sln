@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingDojo05_Client", "Codi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingDojo05_Server", "CodingDojo05_Server\CodingDojo05_Server.csproj", "{AE614F39-8076-47FE-B1DC-C81DE0C1C7BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingDojo05_DataHandling", "CodingDojo05_DataHandling\CodingDojo05_DataHandling.csproj", "{74C733F5-00B3-4EE0-B055-3FFDDF41ED53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AE614F39-8076-47FE-B1DC-C81DE0C1C7BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE614F39-8076-47FE-B1DC-C81DE0C1C7BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE614F39-8076-47FE-B1DC-C81DE0C1C7BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C733F5-00B3-4EE0-B055-3FFDDF41ED53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C733F5-00B3-4EE0-B055-3FFDDF41ED53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C733F5-00B3-4EE0-B055-3FFDDF41ED53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C733F5-00B3-4EE0-B055-3FFDDF41ED53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,6 +7,34 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525"
         DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+
+    <Window.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="BlanchedAlmond"/>
+            <Setter Property="ShowGridLines" Value="True"/>
+        </Style>
+        <Style TargetType="TextBox" x:Key="Hover">
+            
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard TargetProperty="Width">
+                            <DoubleAnimation From="100" To="80" Duration="0:0:0.5"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard TargetProperty="Width">
+                            <DoubleAnimation From="80" To="100" Duration="0:0:0.5"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200*"/>
@@ -21,7 +49,7 @@
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
                     <Label Content="First Name" Grid.Row="0" VerticalAlignment="Center"/>
-                <TextBox Text="{Binding FirstName}" Height="25" Width="100" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+                <TextBox Text="{Binding FirstName}" Style="{DynamicResource Hover}" Height="25" Width="100" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"/>
 
                     <Label Content="Last Name" Grid.Row="1" VerticalAlignment="Center"/>
                 <TextBox Text="{Binding LastName}" Height="25" Width="100" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"/>

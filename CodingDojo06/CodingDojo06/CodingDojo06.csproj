@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{603CF600-FFC8-4CB9-81A4-5F94F4D4094F}</ProjectGuid>
+    <ProjectGuid>{8BA5CB72-2329-4330-A36F-4BA754C1A81D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CodingDojo05</RootNamespace>
-    <AssemblyName>CodingDojo05</AssemblyName>
+    <RootNamespace>CodingDojo06</RootNamespace>
+    <AssemblyName>CodingDojo06</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -69,8 +69,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Communication\Client.cs" />
+    <Compile Include="ViewModel\InventoryVM.cs" />
+    <Compile Include="ViewModel\ToyItemVM.cs" />
+    <Compile Include="ViewModel\LegoVM.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\PlaymobilVM.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -111,6 +114,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\lego\batman.jpg" />
+    <Resource Include="pictures\lego\car.jpg" />
+    <Resource Include="pictures\lego\ninja.jpg" />
+    <Resource Include="pictures\lego\police.jpg" />
+    <Resource Include="pictures\lego\shark.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\playmobil\ark.jpg" />
+    <Resource Include="pictures\playmobil\boat.jpg" />
+    <Resource Include="pictures\playmobil\castle.jpg" />
+    <Resource Include="pictures\playmobil\dragons.jpg" />
+    <Resource Include="pictures\playmobil\farm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\lego\lego.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\playmobil\playmobil.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

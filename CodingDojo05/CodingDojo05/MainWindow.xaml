@@ -16,17 +16,17 @@
         </Grid.RowDefinitions>
         
         <Label Grid.Row="0" Content="Chat Name: " HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="0" Height="20" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="85,0,0,0"/>
-        <Button Grid.Row="0" Height="20" Width="60" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0" Content="Connect"/>
+        <TextBox Text="{Binding ChatName}" Grid.Row="0" Height="20" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="85,0,0,0"/>
+        <Button Command="{Binding ClickConnectBtn}" Grid.Row="0" Height="20" Width="60" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0" Content="Connect"/>
 
         <Label Grid.Row="1" Content="Messages" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox Grid.Row="1" Margin="5,25,5,0" BorderBrush="Black">
+        <ListBox ItemsSource="{Binding ReceivedMessages}" Grid.Row="1" Margin="5,25,5,0" BorderBrush="Black">
             
-        </TextBox>
+        </ListBox>
         
         <Label Grid.Row="2" Content="Message: " HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="2" Height="20" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="85,0,0,0"/>
-        <Button Grid.Row="2" Height="20" Width="120" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0" Content="Send"/>
+        <TextBox Grid.Row="2" Height="20" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="85,0,0,0" Text="{Binding Message}"/>
+        <Button Command="{Binding ClickSendBtn}" Grid.Row="2" Height="20" Width="120" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0" Content="Send"/>
 
 
     </Grid>
