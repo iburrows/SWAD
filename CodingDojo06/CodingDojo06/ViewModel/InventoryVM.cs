@@ -14,12 +14,25 @@ namespace CodingDojo06.ViewModel
 
         public string Description { get; set; }
         public BitmapImage Image{ get; set; }
-        public ObservableCollection<ToyItemVM> LegoItems { get; set; }
+        public string AgeRecommendation { get; set; }
+        public ObservableCollection<InventoryVM> Items { get; set; }
 
-        public InventoryVM(string description, BitmapImage image, ObservableCollection<ToyItemVM> legoItems)
+        public InventoryVM(string description, BitmapImage image, string recommendation)
         {
             Description = description;
             Image = image;
+            AgeRecommendation = recommendation;
         }
+
+        public void AddItem(InventoryVM item)
+        {
+            if (Items == null)
+            {
+                Items = new ObservableCollection<InventoryVM>();
+            }
+                Items.Add(item);
+            
+        }
+
     }
 }
