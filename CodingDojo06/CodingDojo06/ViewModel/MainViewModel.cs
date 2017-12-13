@@ -12,7 +12,8 @@ namespace CodingDojo06.ViewModel
         private InventoryVM selectedInventory;
         private InventoryVM selectedItem;
         //public RelayCommand<InventoryVM> buyBtn;
-        public RelayCommand buyBtn;
+        //public RelayCommand buyBtn;
+        public RelayCommand<InventoryVM> buyBtn;
 
         public ObservableCollection<InventoryVM> Inventory { get; set; }
         public ObservableCollection<InventoryVM> Cart { get; set; }
@@ -20,8 +21,8 @@ namespace CodingDojo06.ViewModel
         public InventoryVM SelectedInventory { get { return selectedInventory; } set { selectedInventory = value; RaisePropertyChanged(); }}
         public InventoryVM SelectedItem { get { return selectedItem; } set { selectedItem = value; RaisePropertyChanged(); } }
 
-        //public RelayCommand<InventoryVM> BuyBtn { get { return buyBtn; } set { buyBtn = value; } }
-        public RelayCommand BuyBtn { get { return buyBtn; } set { buyBtn = value; } }
+        public RelayCommand<InventoryVM> BuyBtn { get { return buyBtn; } set { buyBtn = value; RaisePropertyChanged(); } }
+        //public RelayCommand BuyBtn { get { return buyBtn; } set { buyBtn = value; } }
 
         public MainViewModel()
         {
@@ -29,22 +30,23 @@ namespace CodingDojo06.ViewModel
 
             Inventory = new ObservableCollection<InventoryVM>();
             Cart = new ObservableCollection<InventoryVM>();
-            //BuyBtn = new RelayCommand<InventoryVM>(
-            //    (()=> 
-            //    {
-            //        Cart.Add(new InventoryVM(selectedItem.Description, selectedItem.Image,selectedItem.AgeRecommendation));
-            //    }
-            //);
+            BuyBtn = new RelayCommand<InventoryVM>((p) =>
+                {
+                    Cart.Add(p);
+                }
+            );
 
-            BuyBtn = new RelayCommand(
-                () =>
-                {
-                    Cart.Add(new InventoryVM(selectedItem.Description, selectedItem.Image, selectedItem.AgeRecommendation));
-                },
-                ()=> 
-                {
-                    return selectedItem != null;
-                });
+            //BuyBtn = new RelayCommand(
+            //    () =>
+            //    {
+            //        Cart.Add(new InventoryVM(selectedItem.Description, selectedItem.Image, selectedItem.AgeRecommendation));
+            //    }
+            //    //,
+            //    //()=> 
+            //    //{
+            //    //    return selectedItem != null;
+            //    //}
+            //    );
 
             DemoDataGenerator();
             //CartDemoData();

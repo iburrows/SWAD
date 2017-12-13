@@ -29,12 +29,16 @@
             <Setter Property="BorderThickness" Value="2"/>
         </Style>
 
-        <Style TargetType="ListBox">
+        <!--<Style TargetType="ListBox">
             <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="BorderThickness" Value="2"/>
-        </Style>
+        </Style>-->
 
-        <Style x:Key="ItemBackground" TargetType="ListBox">
+        <!--<Style x:Key="ItemBackground" TargetType="ListBox">
+            <Setter Property="Background" Value="#FF37C979"/>
+        </Style>-->
+
+        <Style x:Key="ItemBackground" TargetType="ItemsControl">
             <Setter Property="Background" Value="#FF37C979"/>
         </Style>
 
@@ -112,8 +116,82 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <ListBox Grid.Column="1" Style="{StaticResource ItemBackground}" ItemsSource="{Binding SelectedInventory.Items}" SelectedItem="{Binding SelectedItem}">
-                <!--<ListBox Grid.Column="1" ItemsSource="{Binding Inventory}" SelectedItem="{Binding SelectedItem}">-->
+            <!--<ItemsControl Grid.Column="1" ItemsSource="{Binding SelectedInventory.Items}" Style="{StaticResource ItemBackground}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                        <Border CornerRadius="5" BorderThickness="2" BorderBrush="BurlyWood" Margin="2,2,2,2">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal" Height="50">
+                                        <Label Content="{Binding Description}" Width="50"/>
+                                        <Label Content="{Binding AgeRecommendation}" Width="30"/>
+                                        <Image Source="{Binding Image}" Width="60"/>
+
+                                        <Button Content="Buy" Width="50" Command="{Binding Main.BuyBtn, Source={StaticResource Locator}}"/>
+
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                -->
+            <!--<ItemsControl.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="Width" Value="50"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>-->
+            <!--
+            </ItemsControl>-->
+
+            <ItemsControl Grid.Column="1" ItemsSource="{Binding SelectedInventory.Items}" Style="{StaticResource ItemBackground}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="5,5,5,5" BorderThickness="2" BorderBrush="AliceBlue" CornerRadius="5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="50"/>
+                                    <!--<RowDefinition Height="20"/>-->
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Content="{Binding Description}"/>
+                                <Label Content="{Binding AgeRecommendation}" Grid.Column="1"/>
+                                <Image Source="{Binding Image}" Grid.RowSpan="2" Grid.Column="2"/>
+
+                                <Button Command="{Binding Main.BuyBtn}" Grid.Row="1" Content="Buy" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Height="30" FontSize="12" FontWeight="Bold" DataContext="{Binding Source={StaticResource Locator}}"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+                <!--<ItemsControl.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="Width" Value="50"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>-->
+
+            </ItemsControl>
+
+            <!--<ListBox Grid.Column="1" Style="{StaticResource ItemBackground}" ItemsSource="{Binding SelectedInventory.Items}" SelectedItem="{Binding SelectedItem}">
+                -->
+            <!--<ListBox Grid.Column="1" ItemsSource="{Binding Inventory}" SelectedItem="{Binding SelectedItem}">-->
+            <!--
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Border Style="{StaticResource ItemsBorder}">
@@ -130,14 +208,16 @@
 
                                 <Label Content="{Binding Description}" Grid.Column="0"/>
                                 <Label Content="{Binding AgeRecommendation}" Grid.Column="1"/>
-                                <!--<Label Content="{Binding NoOfParts}" Grid.Column="1"/>-->
+                                -->
+            <!--<Label Content="{Binding NoOfParts}" Grid.Column="1"/>-->
+            <!--
                                 <Image Source="{Binding Image}" Grid.Column="2" Grid.RowSpan="2"/>
                                 <Button Command="{Binding Main.BuyBtn}"  Content="Buy" HorizontalAlignment="Center" Grid.ColumnSpan="3" Width="50" Grid.Row="1" DataContext="{Binding Source={StaticResource Locator}}"/>
                             </Grid>
                         </Border>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
-            </ListBox>
+            </ListBox>-->
         </Grid>
 
         <Grid Grid.Row="1">
