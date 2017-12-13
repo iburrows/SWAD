@@ -6,8 +6,34 @@
         xmlns:local="clr-namespace:CodingDojo07"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525"
-        DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+        DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
+        xmlns:vm="clr-namespace:CodingDojo07.ViewModel"
+        xmlns:views="clr-namespace:CodingDojo07.Views"
+        >
+
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="5">
+            <Button Content="Overview" Margin="5" Command="{Binding OverviewBtnClickedCommand}"/>
+            <Button Content="My Toys" Margin="5" Command="{Binding MyToysBtnClickedCommand}"/>
+        </StackPanel>
+
+        <ContentControl Grid.Column="1"  Content="{Binding CurrentVm}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type vm:OverviewVM}">
+                    <views:OverviewView/>
+                </DataTemplate>
+                
+                <DataTemplate DataType="{x:Type vm:MyToysVM}">
+                    <views:MyToysView/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
     </Grid>
+
+
+
 </Window>
