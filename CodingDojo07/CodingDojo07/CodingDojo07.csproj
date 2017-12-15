@@ -69,6 +69,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\Items.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MyToysVM.cs" />
     <Compile Include="ViewModel\OverviewVM.cs" />
@@ -127,6 +128,21 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\PlayMobil\ark.jpg" />
+    <Resource Include="Images\PlayMobil\boat.jpg" />
+    <Resource Include="Images\PlayMobil\castle.jpg" />
+    <Resource Include="Images\PlayMobil\dragons.jpg" />
+    <Resource Include="Images\PlayMobil\farm.jpg" />
+    <Resource Include="Images\PlayMobil\playmobil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Lego\batman.jpg" />
+    <Resource Include="Images\Lego\car.jpg" />
+    <Resource Include="Images\Lego\download.jpg" />
+    <Resource Include="Images\Lego\ninja.jpg" />
+    <Resource Include="Images\Lego\police.jpg" />
+    <Resource Include="Images\Lego\shark.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

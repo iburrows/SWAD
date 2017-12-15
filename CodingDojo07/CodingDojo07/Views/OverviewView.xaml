@@ -8,6 +8,31 @@
              d:DesignHeight="300" d:DesignWidth="500"
              DataContext="{Binding Source={StaticResource Locator}, Path=Overview}">
     <Grid>
-            <!--design information goes here-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding Items}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <!--<Border CornerRadius="5" Margin="2" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Stretch" Width="220">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Content="{Binding Description}"/>
+                            <Image Source="{Binding Image}" Grid.Column="1"/>
+                        </Grid>
+                    </Border>-->
+
+                    <StackPanel Orientation="Horizontal" Width="130" Height="50">
+                        <Image Source="{Binding Image}" Width="60" Height="60"/>
+                        <Label Content="{Binding Description}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>
