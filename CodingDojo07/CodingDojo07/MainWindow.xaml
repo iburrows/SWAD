@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CodingDojo07"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525"
+        Title="MainWindow" Height="350" Width="750"
         DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
         xmlns:vm="clr-namespace:CodingDojo07.ViewModel"
         xmlns:views="clr-namespace:CodingDojo07.Views"

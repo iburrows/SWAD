@@ -69,7 +69,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModel\Items.cs" />
+    <Compile Include="ViewModel\InventoryVM.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MyToysVM.cs" />
     <Compile Include="ViewModel\OverviewVM.cs" />

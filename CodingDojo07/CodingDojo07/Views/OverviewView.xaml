@@ -5,34 +5,48 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CodingDojo07.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="500"
+             d:DesignHeight="300" d:DesignWidth="750"
              DataContext="{Binding Source={StaticResource Locator}, Path=Overview}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Items}">
+        <ListBox ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedInventory}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <!--<Border CornerRadius="5" Margin="2" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Stretch" Width="220">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition Width="3*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Label Content="{Binding Description}"/>
-                            <Image Source="{Binding Image}" Grid.Column="1"/>
-                        </Grid>
-                    </Border>-->
-
-                    <StackPanel Orientation="Horizontal" Width="130" Height="50">
-                        <Image Source="{Binding Image}" Width="60" Height="60"/>
+                    <StackPanel Orientation="Horizontal" Width="140" Height="50">
+                        <Image Source="{Binding Image}" Width="50" Height="60"/>
                         <Label Content="{Binding Description}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <ItemsControl Grid.Column="1" ItemsSource="{Binding SelectedInventory.Items}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="2" BorderBrush="Black" CornerRadius="5" Margin="5">
+                    <StackPanel Orientation="Vertical">
+                        
+                        <StackPanel Orientation="Horizontal" Height="50" Width="160" Margin="5">
+                            <Image Source="{Binding Image}" Width="80"/>
+                            <Label Content="{Binding Description}"/>
+                            <Label Content="{Binding AgeRestriction}"/>
+                        </StackPanel>
+
+                            <StackPanel>
+                                <Button Content="Buy" Width="50" Margin="2"/>
+                            </StackPanel>
+                    </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </UserControl>
